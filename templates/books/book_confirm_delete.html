@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="form-card">
+    <h2 style="margin-bottom: 12px; color: #f87171;">Delete Book</h2>
+    <p style="color: var(--text-muted); margin-bottom: 24px;">
+        Are you sure you want to delete <strong>"{{ book.title }}"</strong>? This action cannot be undone.
+    </p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn" style="background: #ef4444;">Confirm Delete</button>
+        <a href="{% url 'book_list' %}" style="color: var(--text-muted); margin-left: 16px; text-decoration: none; font-size: 0.9rem;">Cancel</a>
+    </form>
+</div>
+{% endblock %}
